@@ -3,6 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-flowtype": "^5.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.4",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
     "@testing-library/jest-dom": "^5.8.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^7.1.2",
@@ -10,19 +33,20 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:nowatch": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
-    "pre-pull-request": "npm run format && npm run lint && npm run build"
+    "lint:autofix": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
+    "format:prettier": "prettier --write src/**/*.{ts,tsx,css}",
+    "pre-pull-request": "yarn test:nowatch && yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,24 +63,24 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.34.0",
-    "@typescript-eslint/parser": "^2.34.0",
-    "babel-eslint": "^10.1.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-airbnb-typescript": "^7.2.1",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-flowtype": "^5.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.2",
-    "prettier": "^2.0.5",
-    "prettier-eslint": "^9.0.1",
-    "prettier-eslint-cli": "^5.0.0"
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint:autofix",
+      "yarn format:prettier"
+    ],
+    "*.tsx": [
+      "yarn lint:autofix",
+      "yarn format:prettier"
+    ],
+    "*.css": [
+      "yarn format:prettier"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "yarn pre-pull-request"
+    }
   }
 }
