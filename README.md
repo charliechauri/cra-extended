@@ -12,9 +12,14 @@ The aim of this repo is to serve as a starter point for a single page applicatio
 
 This project is opinionated in the way code should be written in order to prevent errors, styling issues and to have consistency in the code base.
 
-Fork this repo to start your application.
+Fork this repo to start your own application.
 
 For this project you'll need [yarn](https://yarnpkg.com)
+
+## Installation
+
+1. Run `nvm use` to set node version
+1. Run `yarn` to install dependencies
 
 ## Available Scripts
 
