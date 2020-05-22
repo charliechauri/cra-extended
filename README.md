@@ -21,6 +21,12 @@ For this project you'll need [yarn](https://yarnpkg.com)
 1. Run `nvm use` to set node version
 1. Run `yarn` to install dependencies
 
+## Development
+
+Typescript is configured out of the box so as absolute imports based on `src`
+
+This project supports [Sass](https://sass-lang.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
