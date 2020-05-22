@@ -6,6 +6,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Before starting
+
+The aim of this repo is to serve as a starter point for a single page application using React with all common scripts for local development available out of the box (linter, formatter, commits style checker, test runner).
+
+This project is opinionated in the way code should be written in order to prevent errors, styling issues and to have consistency in the code base.
+
+Fork this repo to start your application.
+
 ## Available Scripts
 
 In the project directory, you can run:
