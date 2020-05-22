@@ -14,6 +14,8 @@ This project is opinionated in the way code should be written in order to preven
 
 Fork this repo to start your application.
 
+For this project you'll need [yarn](https://yarnpkg.com)
+
 ## Available Scripts
 
 In the project directory, you can run:
