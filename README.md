@@ -71,6 +71,22 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### Push to repository
+
+Run before each push `test:nowatch` and `build` in order to maintain quality of the project.
+Minimum coverage is required and configured as follows:
+
+```bash
+branches: 90
+functions: 90
+lines: 90
+statements: 90
+```
+
+This is the default value from jest
+
+However, if you feel confident enough your change doesn't need to run tests (change in docs, config, etc) you can pass `--no-verify` argument to the `git push`
+
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -90,3 +106,7 @@ This project is set to run linter/formatter before a commit and before a pushing
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+```
+
+```
