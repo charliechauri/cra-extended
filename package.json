@@ -48,7 +48,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "lint:autofix": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
-    "format:prettier": "prettier --write src/**/*.{ts,tsx,css}",
+    "format:prettier": "prettier --write src/**/*.{ts,tsx,scss}",
     "pre-pull-request": "yarn test:nowatch && yarn build"
   },
   "eslintConfig": {
@@ -75,7 +75,7 @@
       "yarn lint:autofix",
       "yarn format:prettier"
     ],
-    "*.css": [
+    "*.scss": [
       "yarn format:prettier"
     ]
   },
