@@ -25,7 +25,7 @@ For this project you'll need [yarn](https://yarnpkg.com)
 
 Typescript is configured out of the box so as absolute imports based on `src`
 
-This project supports [Sass](https://sass-lang.com/)
+This project supports [Sass](https://sass-lang.com/) with absolute imports as well ootbx
 
 ## Available Scripts
 
